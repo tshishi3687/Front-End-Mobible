@@ -1,0 +1,116 @@
+
+<div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <table class="table" *ngIf="donneeService.isAuthenticated()">
+        <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Information bancaire</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">N° Compte Bancaire</th>
+          <td>{{donneeService.client().compte}}</td>
+        </tr>
+        <tr>
+          <th scope="row">N° Domiciliation</th>
+          <td>{{donneeService.client().domiciliation}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Status Don.</th>
+          <td>{{donneeService.client().statusdomiciliation}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Nom banque</th>
+          <td>{{donneeService.client().banque}}</td>
+        </tr>
+        <tr>
+          <th scope="row">N° Carte crédit</th>
+          <td>{{donneeService.client().Credit}}</td>
+        </tr>
+        <tr>
+          <th scope="row">Date d'Expiration</th>
+          <td> {{donneeService.client().expiration}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <div class="form-group col-md-4">
+    <table class="table" *ngIf="donneeService.isAuthenticated()">
+      <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Information Client</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">Nom</th>
+        <td>{{donneeService.client().appartient.nompersonne}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Prénom</th>
+        <td>{{donneeService.client().appartient.prenompersonne}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Type</th>
+        <td>{{donneeService.client().appartient.genrepersonne}}</td>
+      </tr>
+      <tr>
+        <th scope="row">DDN</th>
+        <td>{{donneeService.client().appartient.datenaisspersonne}}</td>
+      </tr>
+      <tr>
+        <th scope="row">N° R. National</th>
+        <td>{{donneeService.client().appartient.nregistrenational}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Etat civile</th>
+        <td>{{donneeService.client().appartient.civilitepersonne}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-group col-md-4">
+    <table class="table" *ngIf="donneeService.isAuthenticated()">
+      <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Adresse</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">Ville</th>
+        <td>{{donneeService.client().appartient.adressepersonne.ville}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Rue</th>
+        <td>{{donneeService.client().appartient.adressepersonne.rue}}</td>
+      </tr>
+      <tr>
+        <th scope="row">N° rue</th>
+        <td>{{donneeService.client().appartient.adressepersonne.nrue}}</td>
+      </tr>
+      <tr>
+        <th scope="row">Code Postal</th>
+        <td>{{donneeService.client().appartient.adressepersonne.cpostal}}</td>
+      </tr>
+      <tr>
+        <th scope="row">N° Boite</th>
+        <td>{{donneeService.client().appartient.adressepersonne.nboitelettre}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+<div>
+  <br>
+  <button *ngIf="donneeService.isAuthenticated()" class="btn btn-secondary mt-2" (click)="afficherContart()">Intégrer à un contrat</button>
+</div>
+<app-contrat  *ngIf="contrat"></app-contrat>

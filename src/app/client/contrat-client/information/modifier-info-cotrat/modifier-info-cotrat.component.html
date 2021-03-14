@@ -1,0 +1,126 @@
+ - <button class="btn btn-secondary mt-2" (click)="detail()" >Modifier information contrat</button>
+ <br>
+ <br>
+ <div *ngIf="active">
+   <form >
+     <table class="table" >
+       <thead>
+       <tr>
+         <th scope="col"></th>
+         <th scope="col">Information contart</th>
+       </tr>
+       </thead>
+     </table>
+     <div class="form-row">
+       <div class="form-group col-md-4">
+         <label >Date de signature</label>
+         <p>{{c.datesignature}}</p>
+       </div>
+
+       <div class="form-group col-md-4">
+         <label >Date de debut du contrat</label>
+         <p>{{c.datedebut}}</p>
+       </div>
+
+       <div class="form-group col-md-4">
+         <label >Date de fin de contrat</label>
+         <p>{{c.datefin}}</p>
+       </div>
+     </div>
+
+
+     <div class="form-row">
+       <div class="form-group col-md-6">
+         <label >Cycle de paiement: </label>
+         <p>{{c.facturation.tempscycle}}</p>
+       </div>
+       <div class="form-group col-md-6">
+         <label >Mode de paiement: </label>
+         <p>{{c.facturation.modepaiement.nom}}</p>
+       </div>
+     </div>
+     <div class="form-row">
+       <div class="form-group col-md-6">
+         <br>
+         <h4>{{c.abonnement.msisdn.ntelephone}}</h4>
+         <br>
+         <ul>
+           <h5>Service d'usage</h5>
+           <li>
+             <label >Crédit d'appelle</label>
+             <p>{{c.abonnement.serviceusage.creditappelle}}</p>
+           </li>
+           <li>
+             <label >Crédit de data</label>
+             <p>{{c.abonnement.serviceusage.creditdata}}</p>
+           </li>
+           <li>
+             <label >Crédit de SMS</label>
+             <p>{{c.abonnement.serviceusage.creditsms}}</p>
+           </li>
+           <li>
+             <label >Crédit de MMS</label>
+             <p>{{c.abonnement.serviceusage.creditmms}}</p>
+           </li>
+           <li>
+             <label >Crédit d'itinérance</label>
+             <p>{{c.abonnement.serviceusage.credititinerance}}</p>
+           </li>
+           <br>
+           <br>
+           <h5>Services d'activation</h5>
+           <li>
+             <label >Transfère de contact</label>
+             <p>{{c.abonnement.serviceactivation.transcontacts}}</p>
+           </li>
+           <li>
+             <label >Transfère de crédit</label>
+             <p>{{c.abonnement.serviceactivation.transcredit}}</p>
+           </li>
+           <li>
+             <label >Activation de la carte SIM</label>
+             <p>{{c.abonnement.serviceactivation.activationsim}}</p>
+           </li>
+         </ul>
+       </div>
+       <div class="form-group col-md-6">
+         <br>
+         <div >
+           <label >Date d'activation</label>
+           <p>{{c.abonnement.dateactivation}}</p>
+           <br>
+           <ul>
+             <li>
+               <label >Status de la carte</label>
+               <p>{{c.abonnement.msisdn.sim.statussim}}</p>
+             </li>
+             <li>
+               <label >Type de carte sim</label>
+               <p>{{c.abonnement.msisdn.sim.typecarte}}</p>
+             </li>
+             <li>
+               <div>
+                 <label >Code Pin :</label>
+                 <p>{{c.abonnement.msisdn.sim.codepin}}</p>
+               </div>
+             </li>
+             <li>
+               <div>
+                 <label >Code Puk :</label>
+                 <p>{{c.abonnement.msisdn.sim.codepuk}}</p>
+               </div>
+             </li>
+             <li>
+               <div>
+                 <label >Code Puk2 :</label>
+                 <p>{{c.abonnement.msisdn.sim.codepuk2}}</p>
+               </div>
+             </li>
+           </ul>
+         </div>
+       </div>
+     </div>
+     <br>
+     <button class="btn btn-secondary mt-2" (click)="modifierContrat()">Modifier contrat</button>
+   </form>
+ </div>

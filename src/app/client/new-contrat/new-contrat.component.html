@@ -1,0 +1,36 @@
+
+<br>
+<br>
+<div><form [formGroup]="colectRNational">
+  <h3>
+  <label for="inputEmail4">Création d'un nouveau contrat </label>
+</h3>
+  <table class="table" >
+    <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Qui recherchez vous?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+
+
+      <th scope="row"><input formControlName="numNational" type="text" class="form-control" id="inputEmail4" placeholder="Qui recherchez vous? ex: 11223344455"></th>
+      <td>
+        <button class="btn btn-secondary mt-2" (click)="rechercherPer()">Rechercher</button>
+        -
+        <button class="btn btn-secondary mt-2" (click)="client.logout()">Effacer tout</button>
+      </td>
+    </tr>
+    <tr>
+    </tbody>
+  </table>
+
+  <div>
+    <p>aucune personne n'a été trouver !</p>
+  </div>
+</form>
+</div>
+
+<app-info-client ></app-info-client>

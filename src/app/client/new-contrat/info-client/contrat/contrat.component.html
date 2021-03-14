@@ -1,0 +1,201 @@
+
+<br>
+<br>
+<div>
+  <form [formGroup]="contratForm">
+    <h3>
+      <label for="inputEmail4">Encodage de client </label>
+    </h3>
+    <table class="table" >
+      <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">COOL UNE NOUVELLE TÊTE :)-</th>
+      </tr>
+      </thead>
+    </table>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="inputEmail4">Date de signature</label>
+        <input  formControlName="dateSignature" type="date" class="form-control"  placeholder="Date de signature">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputEmail4">Date de debut du contrat</label>
+        <input formControlName="dateDebut" type="date" class="form-control" id="inputEmail4" placeholder="Date de debut du contrat">
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="inputEmail4">Date de fin de contrat</label>
+        <input formControlName="dateFin" type="date" class="form-control"  placeholder="Date de fin de contrat">
+      </div>
+    </div>
+
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label >Sélectioner un cycle de paiement: </label>
+        <label>
+          <select formControlName="cyclePaiement" class=form-control>
+            <option value=Monsuellement>Après 30 jours - Monsuellement</option>
+            <option value=Trimestriellement>Après 90 jours - Trimestriellement</option>
+            <option value=Semestriellement>Après 180 jours - Semestriellement</option>
+            <option value=Annuellement>Après 360 jours - Annuellement</option>
+          </select>
+        </label>
+      </div>
+      <div class="form-group col-md-6">
+        <label >Sélectioner un mode de paiement: </label>
+        <label>
+          <select formControlName="modePaiement" class=form-control>
+            <option value=Virement>Par virement manuelle</option>
+            <option value=Domiciliation>Par domiciliation automatique</option>
+            <option value=Carte-crédit>Par carte de crédit automatique</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <br>
+        <button class="btn btn-secondary mt-2" (click)="randomNumTelephone()">Générer nouveau numéro</button>
+        <br><br>
+        <h4>{{this.numCree}}</h4>
+        <br>
+        <ul>
+          <h5>Service d'usage</h5>
+          <li>
+            <label for="inputEmail4">Date d'activation d'abonnement</label>
+            <input formControlName="suactive" type="date" class="form-control"  placeholder="Date d'activation">
+          </li>
+          <li>
+              <label for="inputEmail4">Crédit d'appelle</label>
+              <select formControlName="suappelle" class=form-control>
+                <option value=Illimite>Illimite</option>
+                <option value=néant>__rien__</option>
+                <option value=1h>(1h) Une heures d'appelle</option>
+                <option value=3h>(3h) Trois heures d'appelle</option>
+                <option value=5h>(5h) ciq heures d'appelle</option>
+              </select>
+          </li>
+          <li>
+              <label for="inputEmail4">Crédit de data</label>
+              <select formControlName="sudata" class=form-control>
+                <option value=Illimite>Illimite</option>
+                <option value=néant>__rien__</option>
+                <option value=1g>(1g) Un GB de data</option>
+                <option value=3g>(3g) Trois GB de data</option>
+                <option value=5g>(5g) ciq GB de data</option>
+              </select>
+          </li>
+          <li>
+            <label for="inputEmail4">Crédit de SMS</label>
+            <select formControlName="susms" class=form-control>
+              <option value=Illimite>Illimite</option>
+              <option value=néant>__rien__</option>
+              <option value=100sms>(100) SMS</option>
+              <option value=300sms>(300) SMS</option>
+              <option value=500sms>(500) SMS</option>
+            </select>
+          </li>
+          <li>
+            <label for="inputEmail4">Crédit de MMS</label>
+            <select formControlName="summs" class=form-control>
+              <option value=Illimite>Illimite</option>
+              <option value=néant>__rien__</option>
+              <option value=10mms>(10) MMS</option>
+              <option value=30mms>(30) MMS</option>
+              <option value=50mms>(50) MMS</option>
+            </select>
+          </li>
+          <li>
+            <label for="inputEmail4">Crédit d'itinérance</label>
+            <select formControlName="suitinerance" class=form-control>
+              <option value=Illimite>Illimite</option>
+              <option value=néant>__rien__</option>
+              <option value=1h>(1h) Une heures d'appelle</option>
+              <option value=3h>(3h) Trois heures d'appelle</option>
+              <option value=5h>(5h) Ciq heures d'appelle</option>
+            </select>
+          </li>
+          <br>
+          <br>
+          <h5>Services d'activation</h5>
+          <li>
+            <label for="inputEmail4">Transfère de contact</label>
+            <select formControlName="sacontact" class=form-control>
+              <option value=oui>Oui</option>
+              <option value=non>Nom</option>
+            </select>
+          </li>
+          <li>
+            <label for="inputEmail4">Transfère de crédit</label>
+            <select formControlName="sacredit" class=form-control>
+              <option value=oui>Oui</option>
+              <option value=non>Nom</option>
+            </select>
+          </li>
+          <li>
+            <label for="inputEmail4">Activation de la carte SIM</label>
+            <select formControlName="sasim" class=form-control>
+              <option value=oui>Oui</option>
+              <option value=non>Nom</option>
+            </select>
+          </li>
+        </ul>
+      </div>
+      <div class="form-group col-md-6">
+        <br>
+        <button class="btn btn-secondary mt-2" (click)="randCodeCarteSim()">Générer nouvelle carte Sim</button>
+        <br>
+        <br>
+        <div *ngIf="this.sim">
+            <label for="inputEmail4">Date d'activation</label>
+            <input formControlName="simactivation" type="date" class="form-control"  placeholder="Date d'activation">
+          <br>
+          <ul>
+            <li>
+              <label for="inputEmail4">Status de la carte</label>
+              <label>
+                <select formControlName="simstatus" class=form-control>
+                  <option value=Active>Active</option>
+                  <option value=Desactive>Désactive</option>
+                </select>
+              </label>
+            </li>
+            <li>
+              <label for="inputEmail4">Type de carte sim</label>
+              <label>
+                <select formControlName="simtype" class=form-control>
+                  <option value=Mini_Sim>Mini carte sim</option>
+                  <option value=Micro_Sim>Micro carte sim</option>
+                  <option value=Nano_Sim>Nano carte sim</option>
+                </select>
+              </label>
+            </li>
+            <li>
+              <div>
+                <label for="inputEmail4">Code Pin :</label>
+                <p>{{this.codePin}}</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <label for="inputEmail4">Code Puk :</label>
+                <p>{{this.codePuk}}</p>
+              </div>
+            </li>
+            <li>
+              <div>
+                <label for="inputEmail4">Code Puk2 :</label>
+                <p>{{this.codePuk2}}</p>
+              </div>
+            </li>
+          </ul>
+          </div>
+          </div>
+        </div>
+    <br>
+    <button class="btn btn-secondary mt-2" (click)="creationContrat()">Créer nouveau contrat</button>
+  </form>
+</div>
