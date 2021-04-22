@@ -1,0 +1,119 @@
+
+<button class="btn btn-secondary mt-2" (click)="detail()" >Détail du contrat</button>
+<div class="container" *ngIf="active">
+
+  <div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <table class="table" >
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Info. bancaire</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">N° Compte Bancaire</th>
+            <td>{{c.facturation.information.compte}}</td>
+          </tr>
+          <tr>
+            <th scope="row">N° Domiciliation</th>
+            <td>{{c.facturation.information.domiciliation}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Status Don.</th>
+            <td>{{c.facturation.information.statusdomiciliation}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Nom banque</th>
+            <td>{{c.facturation.information.banque}}</td>
+          </tr>
+          <tr>
+            <th scope="row">N° Carte crédit</th>
+            <td>{{c.facturation.information.Credit}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Date d'Expiration</th>
+            <td> {{c.facturation.information.expiration}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-group col-md-4">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Information Client</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">Nom</th>
+            <td>{{c.facturation.information.appartient.nompersonne}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Prénom</th>
+            <td>{{c.facturation.information.appartient.prenompersonne}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Type</th>
+            <td>{{c.facturation.information.appartient.genrepersonne}}</td>
+          </tr>
+          <tr>
+            <th scope="row">DDN</th>
+            <td>{{c.facturation.information.appartient.datenaisspersonne}}</td>
+          </tr>
+          <tr>
+            <th scope="row">N° R. National</th>
+            <td>{{c.facturation.information.appartient.nregistrenational}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Etat civile</th>
+            <td>{{c.facturation.information.appartient.civilitepersonne}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-group col-md-4">
+        <table class="table" >
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Adresse</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">Ville</th>
+            <td>{{c.facturation.information.appartient.adressepersonne.ville}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Rue</th>
+            <td>{{c.facturation.information.appartient.adressepersonne.rue}}</td>
+          </tr>
+          <tr>
+            <th scope="row">N° rue</th>
+            <td>{{c.facturation.information.appartient.adressepersonne.nrue}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Code Postal</th>
+            <td>{{c.facturation.information.appartient.adressepersonne.cpostal}}</td>
+          </tr>
+          <tr>
+            <th scope="row">N° Boite</th>
+            <td>{{c.facturation.information.appartient.adressepersonne.nboitelettre}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <app-modifier [contrat]="c"></app-modifier>
+    </div>
+    <div>
+      <app-modifier-info-cotrat [c]="c"></app-modifier-info-cotrat>
+    </div>
+  </div>
+</div>

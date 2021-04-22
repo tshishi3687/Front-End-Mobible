@@ -1,0 +1,54 @@
+<br>
+<br>
+<div>
+  <form [formGroup]="colectRNational">
+  <h3>
+    <label for="inputEmail4">Recherche les information du client</label>
+  </h3>
+  <table class="table" >
+    <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Qui recherchez vous?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row"><input formControlName="numNational" type="text" class="form-control" id="inputEmail4" placeholder="Qui recherchez vous? ex: 11223344455"></th>
+      <td>
+        <button class="btn btn-secondary mt-2" (click)="recherContrat()">Rechercher</button>
+      </td>
+    </tr>
+    <tr>
+    </tbody>
+  </table>
+</form>
+  <br>
+  <br>
+  <div *ngFor="let c of listeContrat">
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col">ID </th>
+        <th scope="col">Bénéficiaire Nom / Prénom</th>
+        <th scope="col">Date fin</th>
+        <th scope="col">Mode de paiement</th>
+        <th scope="col">Status</th>
+        <th scope="col">MSISDN</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody >
+      <tr>
+        <th scope="row">{{c.id}}</th>
+        <td>{{c.facturation.information.appartient.nompersonne}} {{c.facturation.information.appartient.prenompersonne}}</td>
+        <td>{{c.datefin}}</td>
+        <td>{{c.facturation.modepaiement.nom}}</td>
+        <td>{{c.abonnement.msisdn.sim.statussim}}</td>
+        <td>{{c.abonnement.msisdn.ntelephone}}</td>
+      </tr>
+    </table><app-information [c]="c"></app-information>
+  </div>
+
+
+</div>
