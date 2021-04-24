@@ -32,7 +32,6 @@ export class DonneeService  implements CanActivate{
 
   client(): Info_bancaire{
     if (this.isAuthenticated()){
-      this.contrat().facturation.information.appartient = JSON.parse(sessionStorage.getItem('user-details'));
       const information = JSON.parse(sessionStorage.getItem('user-details'));
       return information as Info_bancaire;
     }

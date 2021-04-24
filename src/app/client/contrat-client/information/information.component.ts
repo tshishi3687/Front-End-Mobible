@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Contrat} from '../../../objets';
+import {Contrat, Personne} from '../../../objets';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {DonneeService} from '../../../services/donnee.service';
+import {ContratService} from '../../../services/contrat.service';
 
 @Component({
   selector: 'app-information',
