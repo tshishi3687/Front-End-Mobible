@@ -1,0 +1,84 @@
+<br>
+<br>
+<div>
+  <form [formGroup]="newClient">
+    <h3>
+      <label for="inputEmail4">Encodage de client </label>
+    </h3>
+    <table class="table" >
+      <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">COOL UNE NOUVELLE TÊTE :)-</th>
+      </tr>
+      </thead>
+    </table>
+    <div class="form-row">
+      <div class="block">
+        <h6>Information bancaire</h6>
+        <label for="inputEmail4">Compte bancaire</label>
+        <input formControlName="ncompte" type="text" class="form-control"  placeholder="N° compte bancaire">
+        <label for="inputPassword4">N° domiciliation</label>
+        <input formControlName="domiciliation" type="number" class="form-control"  placeholder="N° domiciliation">
+        <label for="inputPassword4">Status domiciliation</label>
+        <select formControlName="statusdemande" class=form-control>
+          <option value=active>Active</option>
+          <option value=déactive>Déactive</option>
+        </select>
+        <label for="inputEmail4">Nom de la banque</label>
+        <input formControlName="banque" type="text" class="form-control"  placeholder="Nom de la banque">
+        <label for="inputPassword4">N° carte de credit</label>
+        <input formControlName="cartecredit" type="text" class="form-control"  placeholder="N° carte de credit">
+        <label for="inputEmail4">Date d'expiration</label>
+        <input formControlName="expiration" type="date" class="form-control"  placeholder="Date d'expiration">
+      </div>
+    </div>
+      <div class="form-row">
+      <div class="block">
+        <h6>Information client</h6>
+        <label for="inputEmail4">Nom</label>
+        <input formControlName="nom" type="text" class="form-control" id="inputEmail4" placeholder="Nom">
+        <label for="inputPassword4">Prénom</label>
+        <input formControlName="prenom" type="text" class="form-control" id="inputPassword4" placeholder="Prénom">
+        <label for="inputEmail4">Genre</label>
+        <select formControlName="genre" class=form-control>
+          <option value=Homme>Homme</option>
+          <option value=Femme>Femme</option>
+          <option value=genre_x>Genre x</option>
+        </select>
+        <label for="inputPassword4">Date de naissance</label>
+        <input formControlName="dateNaissance" type="date" class="form-control"  placeholder="Date de naissance">
+        <div class="form-row">
+          <label for="inputEmail4">N° registre national</label>
+          <input formControlName="nregistreNational" type="text" class="form-control"  placeholder="N° registre national">
+          <label for="inputPassword4">Civilité</label>
+          <select formControlName="civilite" class=form-control>
+            <option value=Marié>Marié(e)</option>
+            <option value=Célibataire>Célibataire</option>
+            <option value=Veuf>Veuf(ve)</option>
+            <option value=cohabitant>cohabitant</option>
+          </select>
+        </div>
+      </div>
+        </div>
+        <div class="form-row">
+      <div class="block">
+        <h6>Adresse client</h6>
+        <label for="inputEmail4">Ville</label>
+        <input formControlName="ville" type="text" class="form-control"  placeholder="Nom Ville">
+        <label for="inputPassword4">Rue</label>
+        <input formControlName="rue" type="text" class="form-control"  placeholder="Nom Rue">
+        <label for="inputEmail4">N° Rue</label>
+        <input formControlName="nrue" type="number" class="form-control"  placeholder="N° Rue">
+        <label for="inputPassword4">Code Postal</label>
+        <input formControlName="cpostal" type="number" class="form-control"  placeholder="Code Postal">
+        <label for="inputEmail4">N° Boite au Lettre</label>
+        <input formControlName="nboitelette" type="text" class="form-control"  placeholder="N° Boite au Lettre">
+      </div>
+        </div>
+    <br>
+    <div *ngIf="this.newClient.valid">
+      <button class="btn btn-secondary mt-2"  (click)="ajouterClient()">Ajouter</button>
+    </div>
+  </form>
+</div>
