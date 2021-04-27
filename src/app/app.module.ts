@@ -16,6 +16,8 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppRoutingModule} from './app-routing.module';
 import {MenuComponent} from './menu/menu.component';
+import { Menu2Component } from './menu2/menu2.component';
+import { ModifierInfoBancaireComponent } from './client/contrat-client/information/modifier-info-bancaire/modifier-info-bancaire.component';
 
 @NgModule({
     declarations: [
@@ -29,7 +31,9 @@ import {MenuComponent} from './menu/menu.component';
       NewContratComponent,
       InfoClientComponent,
       ContratComponent,
-      MenuComponent
+      MenuComponent,
+      Menu2Component,
+      ModifierInfoBancaireComponent
     ],
   imports: [
     BrowserModule,

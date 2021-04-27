@@ -35,7 +35,6 @@
         <th scope="col">Mode de paiement</th>
         <th scope="col">Status</th>
         <th scope="col">MSISDN</th>
-        <th scope="col">Action</th>
       </tr>
       </thead>
       <tbody >
@@ -47,8 +46,10 @@
         <td>{{c.abonnement.msisdn.sim.statussim}}</td>
         <td>{{c.abonnement.msisdn.ntelephone}}</td>
       </tr>
-    </table><app-information [c]="c"></app-information>
+    </table>
+    <app-menu2 [c]="c"></app-menu2>
   </div>
-
-
 </div>
+<br>
+<br>
+<br>

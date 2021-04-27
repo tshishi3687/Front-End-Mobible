@@ -1,126 +1,153 @@
- - <button class="btn btn-secondary mt-2" (click)="detail()" >Modifier information contrat</button>
- <br>
- <br>
- <div *ngIf="active">
-   <form >
+<div>
      <table class="table" >
        <thead>
-       <tr>
-         <th scope="col"></th>
-         <th scope="col">Information contart</th>
+       <tr align="center">
+         <th scope="col" align="center">
+           <div class="form-group col-md-6">
+             <h1 align="center">{{cc.abonnement.msisdn.ntelephone}}</h1>
+             <p>N° contrat: {{cc.id}} <br> N° abonnement: {{cc.abonnement.id}}</p>
+         </div>
+         </th>
+         <th>
+       <div class="form-row">
+         <div class="form-group col-md-6">
+           <h3 align="center">
+             <p>
+               {{cc.facturation.information.appartient.nompersonne}} / {{cc.facturation.information.appartient.prenompersonne}}
+             </p>
+           </h3>
+           <p>NISS - {{cc.facturation.information.appartient.nregistrenational}}</p>
+         </div>
+       </div>
+       </th>
        </tr>
        </thead>
      </table>
-     <div class="form-row">
-       <div class="form-group col-md-4">
-         <label >Date de signature</label>
-         <p>{{c.datesignature}}</p>
-       </div>
+</div>
+<div>
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label >Date de signature</label>
+      <p>{{cc.datesignature}}</p>
+    </div>
 
-       <div class="form-group col-md-4">
-         <label >Date de debut du contrat</label>
-         <p>{{c.datedebut}}</p>
-       </div>
+    <div class="form-group col-md-3">
+      <label >Date de debut du contrat</label>
+      <p>{{cc.datedebut}}</p>
+    </div>
 
-       <div class="form-group col-md-4">
-         <label >Date de fin de contrat</label>
-         <p>{{c.datefin}}</p>
-       </div>
-     </div>
+    <div class="form-group col-md-3">
+      <label >Date de fin de contrat</label>
+      <p>{{cc.datefin}}</p>
+    </div>
 
+    <div class="form-group col-md-3">
+      <label >Date d'activation contrat</label>
+      <p>{{cc.abonnement.dateactivation}}</p>
+    </div>
+  </div>
+</div>
 
-     <div class="form-row">
-       <div class="form-group col-md-6">
-         <label >Cycle de paiement: </label>
-         <p>{{c.facturation.tempscycle}}</p>
-       </div>
-       <div class="form-group col-md-6">
-         <label >Mode de paiement: </label>
-         <p>{{c.facturation.modepaiement.nom}}</p>
-       </div>
-     </div>
-     <div class="form-row">
-       <div class="form-group col-md-6">
-         <br>
-         <h4>{{c.abonnement.msisdn.ntelephone}}</h4>
-         <br>
-         <ul>
-           <h5>Service d'usage</h5>
-           <li>
-             <label >Crédit d'appelle</label>
-             <p>{{c.abonnement.serviceusage.creditappelle}}</p>
-           </li>
-           <li>
-             <label >Crédit de data</label>
-             <p>{{c.abonnement.serviceusage.creditdata}}</p>
-           </li>
-           <li>
-             <label >Crédit de SMS</label>
-             <p>{{c.abonnement.serviceusage.creditsms}}</p>
-           </li>
-           <li>
-             <label >Crédit de MMS</label>
-             <p>{{c.abonnement.serviceusage.creditmms}}</p>
-           </li>
-           <li>
-             <label >Crédit d'itinérance</label>
-             <p>{{c.abonnement.serviceusage.credititinerance}}</p>
-           </li>
-           <br>
-           <br>
-           <h5>Services d'activation</h5>
-           <li>
-             <label >Transfère de contact</label>
-             <p>{{c.abonnement.serviceactivation.transcontacts}}</p>
-           </li>
-           <li>
-             <label >Transfère de crédit</label>
-             <p>{{c.abonnement.serviceactivation.transcredit}}</p>
-           </li>
-           <li>
-             <label >Activation de la carte SIM</label>
-             <p>{{c.abonnement.serviceactivation.activationsim}}</p>
-           </li>
-         </ul>
-       </div>
-       <div class="form-group col-md-6">
-         <br>
-         <div >
-           <label >Date d'activation</label>
-           <p>{{c.abonnement.dateactivation}}</p>
-           <br>
-           <ul>
-             <li>
-               <label >Status de la carte</label>
-               <p>{{c.abonnement.msisdn.sim.statussim}}</p>
-             </li>
-             <li>
-               <label >Type de carte sim</label>
-               <p>{{c.abonnement.msisdn.sim.typecarte}}</p>
-             </li>
-             <li>
-               <div>
-                 <label >Code Pin :</label>
-                 <p>{{c.abonnement.msisdn.sim.codepin}}</p>
-               </div>
-             </li>
-             <li>
-               <div>
-                 <label >Code Puk :</label>
-                 <p>{{c.abonnement.msisdn.sim.codepuk}}</p>
-               </div>
-             </li>
-             <li>
-               <div>
-                 <label >Code Puk2 :</label>
-                 <p>{{c.abonnement.msisdn.sim.codepuk2}}</p>
-               </div>
-             </li>
-           </ul>
-         </div>
-       </div>
-     </div>
-     <br>
-     <button class="btn btn-secondary mt-2" (click)="modifierContrat()">Modifier contrat</button>
-   </form>
- </div>
+<div class="container" >
+  <h3>
+    <label >Information contrat </label>
+  </h3>
+  <div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <table class="table" >
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Service d'usage</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">Crédit d'appelle.</th>
+            <td>{{cc.abonnement.serviceusage.creditappelle}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Crédit de data</th>
+            <td>{{cc.abonnement.serviceusage.creditdata}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Crédit de SMS</th>
+            <td>{{cc.abonnement.serviceusage.creditsms}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Crédit de MMS</th>
+            <td>{{cc.abonnement.serviceusage.creditmms}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Crédit d'itinérance</th>
+            <td>{{cc.abonnement.serviceusage.credititinerance}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-group col-md-4">
+        <table class="table">
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Information carte SIM</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">Status SIM</th>
+            <td>{{cc.abonnement.msisdn.sim.statussim}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Type SIM</th>
+            <td>{{cc.abonnement.msisdn.sim.typecarte}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Code PIN</th>
+            <td>{{cc.abonnement.msisdn.sim.codepin}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Code PUK</th>
+            <td>{{cc.abonnement.msisdn.sim.codepuk}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Code PUK 2</th>
+            <td>{{cc.abonnement.msisdn.sim.codepuk2}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="form-group col-md-4">
+        <table class="table" >
+          <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Service d'activation</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row">Trans. contrat</th>
+            <td>{{cc.abonnement.serviceactivation.transcontacts}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Trans. crédit</th>
+            <td>{{cc.abonnement.serviceactivation.transcredit}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Activation de carte</th>
+            <td>{{cc.abonnement.serviceactivation.activationsim}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+

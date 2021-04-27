@@ -74,8 +74,6 @@ export class NewClientComponent implements OnInit {
     info_bancaire.banque = this.newClient.value.banque;
     info_bancaire.Credit = this.newClient.value.cartecredit;
     info_bancaire.expiration = this.newClient.value.expiration;
-
-    console.log(personne);
     this.infoBan.ajouterPersonne(info_bancaire).subscribe(reponse => alert(this.ok), reponse => alert(this.error));
   }
 

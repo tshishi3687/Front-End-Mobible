@@ -1,22 +1,22 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Component, Input, OnInit} from '@angular/core';
 import {DonneeService} from '../../../../services/donnee.service';
-import {Adresse, Contrat, Info_bancaire, Personne} from '../../../../objets';
 import {PersonneServicesService} from '../../../../services/personne-services.service';
 import {ContratService} from '../../../../services/contrat.service';
+import {Adresse, Contrat, Cycle, Info_bancaire, Mode_paiement, Personne} from '../../../../objets';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CyclePaiementService} from '../../../../services/cycle-paiement.service';
 
 @Component({
-  selector: 'app-modifier',
-  templateUrl: './modifier.component.html',
-  styleUrls: ['./modifier.component.css']
+  selector: 'app-modifier-info-bancaire',
+  templateUrl: './modifier-info-bancaire.component.html',
+  styleUrls: ['./modifier-info-bancaire.component.css']
 })
-export class ModifierComponent implements OnInit {
-
+export class ModifierInfoBancaireComponent implements OnInit {
   constructor(
     private client: DonneeService,
     private person: PersonneServicesService,
-    private contract: ContratService
-) { }
+    private cycle: CyclePaiementService
+  ) { }
 
   private error = 'il y a eu un problème';
   private ok = 'tout c\'est bien passé :)-';
@@ -34,8 +34,10 @@ export class ModifierComponent implements OnInit {
       // tslint:disable-next-line:max-line-length
       nregistreNational: new FormControl(this.client.client().appartient.nregistrenational, [Validators.required, Validators.minLength(11), Validators.maxLength(11)]),
       civilite: new FormControl(this.client.client().appartient.civilitepersonne, [Validators.required]),
+      cyclePaiement: new FormControl(null, [Validators.required]),
+      modePaiement: new FormControl(null, [Validators.required]),
 
-      // tslint:disable-next-line:max-line-length
+      // tslint:disable-next-line:max-line-lengt max-line-length
       ville: new FormControl(this.client.client().appartient.adressepersonne.ville, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
       // tslint:disable-next-line:max-line-length
       rue: new FormControl(this.client.client().appartient.adressepersonne.rue, [Validators.required, Validators.minLength(7), Validators.maxLength(100)]),
@@ -63,7 +65,7 @@ export class ModifierComponent implements OnInit {
   // tslint:disable-next-line:typedef
   modifier() {
     const addr = new Adresse();
-    addr.id = this.client.client().appartient.adressepersonne.id;
+    addr.id = this.cc.facturation.information.appartient.adressepersonne.id;
     addr.ville = this.newClient.value.ville;
     addr.rue = this.newClient.value.rue;
     addr.nrue = this.newClient.value.nrue;
@@ -71,7 +73,7 @@ export class ModifierComponent implements OnInit {
     addr.nboitelettre = this.newClient.value.nboitelettre;
 
     const personne = new Personne();
-    personne.id = this.client.client().appartient.id;
+    personne.id = this.cc.facturation.information.appartient.id;
     personne.nompersonne = this.newClient.value.nom;
     personne.prenompersonne = this.newClient.value.prenom;
     personne.genrepersonne = this.newClient.value.genre;
@@ -89,6 +91,16 @@ export class ModifierComponent implements OnInit {
     info_bancaire.Credit = this.newClient.value.cartecredit;
     info_bancaire.expiration = this.newClient.value.expiration;
 
-    this.person.modifier(personne).subscribe(reponse => alert(this.ok), reponse => alert(this.error));
+    const mode = new Mode_paiement();
+    mode.id = this.cc.facturation.modepaiement.id;
+    mode.nom = this.newClient.value.modePaiement;
+
+    const cycle = new Cycle();
+    cycle.id = this.cc.facturation.id;
+    cycle.tempscycle = this.newClient.value.cyclePaiement;
+    cycle.modepaiement = mode;
+    cycle.information = info_bancaire;
+    console.log(cycle);
+    this.cycle.changerInfoBancaire(cycle).subscribe(reponse => alert(this.ok), reponse => alert(this.error));
   }
 }

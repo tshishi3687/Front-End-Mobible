@@ -37,6 +37,6 @@ export class PersonneServicesService {
         'Access-Control-Allow-Origin': '*'
       })
     };
-    return this.client.put('http://localhost:8081/personne', personne, httpOptions);
+    return this.client.put('http://localhost:8081/personne/modif', personne, httpOptions);
   }
 }

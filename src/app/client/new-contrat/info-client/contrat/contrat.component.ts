@@ -17,7 +17,8 @@ export class ContratComponent implements OnInit {
               private contratService: ContratService) { }
 
   private numTelephone = '049';
-  numCree;
+  private nume = '04';
+  numCree: string;
   codePin;
   codePuk;
   codePuk2;
@@ -35,6 +36,8 @@ export class ContratComponent implements OnInit {
   private ok = 'tout c\'est bien passé :)-';
   private error = 'il y a eu un proble ! :(';
   sim = false;
+  numGene = false;
+  numCompo = false;
 
   contratForm = new FormGroup(
     {
@@ -62,6 +65,8 @@ export class ContratComponent implements OnInit {
       sacontact: new FormControl(null, [Validators.required]),
       sacredit: new FormControl(null, [Validators.required]),
       sasim: new FormControl(null, [Validators.required]),
+
+      numTel: new FormControl('12345678', [Validators.min(10000000), Validators.max(89999999)])
     }
   );
 
@@ -73,7 +78,7 @@ export class ContratComponent implements OnInit {
     const modepaiement = new Mode_paiement();
     modepaiement.id = 0;
     modepaiement.nom = this.contratForm.value.modePaiement;
-    console.log(modepaiement);
+
     const cycle = new Cycle();
     cycle.id = 0;
     cycle.tempscycle = this.contratForm.value.cyclePaiement;
@@ -91,8 +96,13 @@ export class ContratComponent implements OnInit {
 
     const telephone = new Telephone();
     telephone.id = 0;
-    telephone.ntelephone = this.numCree;
+    if (this.numCree === null){
+      telephone.ntelephone = this.nume + this.contratForm.value.numTel;
+    }else{
+      telephone.ntelephone = this.numCree;
+    }
     telephone.sim = sim;
+    console.log(telephone);
 
     const serUsage = new Service_usage();
     serUsage.id = 0;
@@ -136,11 +146,15 @@ export class ContratComponent implements OnInit {
       tel.id = 0;
       tel.ntelephone = this.numTelephone + this.suiteNumTel;
       // tslint:disable-next-line:max-line-length
-      this.telephone.existNumTel(tel).subscribe((reponse: boolean) => ((this.numExist = reponse), this.numCree = this.numTelephone + this.suiteNumTel), reponse => alert(this.error));
-      console.log(this.numExist);
-
+      this.telephone.existNumTel(tel).subscribe((reponse: boolean) => {
+        this.numExist = reponse;
+        if (this.numExist === false){
+          this.numCree = this.numTelephone + this.suiteNumTel;
+        }
+      }, reponse => alert(this.error));
     } while (this.numExist);
   }
+
 
   randCodeCarteSim(): void{
     this.sim = true;
@@ -156,5 +170,21 @@ export class ContratComponent implements OnInit {
     this.mincodepuk2 = Math.ceil(10000000);
     this.maxcodepuk2 = Math.floor(99999999);
     this.codePuk2 = Math.floor(Math.random() * (this.maxcodepuk2 - this.mincodepuk2)) + this.mincodepuk2;
+  }
+
+  numeroGenerer(): void{
+    if (this.numGene === false){
+      this.numGene = true;
+      this.numCompo = false;
+      this.contratForm.value.numTel = null;
+    }
+  }
+
+  numeroCompo(): void{
+    if (this.numCompo === false){
+      this.numCompo = true;
+      this.numGene = false;
+      this.numCree = null;
+    }
   }
 }

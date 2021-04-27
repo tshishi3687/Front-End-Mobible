@@ -1,0 +1,22 @@
+<div class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab"  role="tab" aria-controls="home" aria-selected="true" (click)="actionInfoClient()">Information client</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab" data-toggle="tab"  role="tab" aria-controls="profile" aria-selected="false" (click)="actionModifClient()">Modifier information Client</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab2" data-toggle="tab"  role="tab" aria-controls="profile2" aria-selected="false"(click)="actionInfoContrat()">Information contrat</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab3" data-toggle="tab"  role="tab" aria-controls="profile2" aria-selected="false"(click)="actionModifInfoBancaire()">Modifier Information bancaire</a>
+    </li>
+  </ul>
+</div>
+<div>
+  <app-information *ngIf="infoClient" [cc]="c"></app-information>
+  <app-modifier *ngIf="modiffClient" [cc]="c"></app-modifier>
+  <app-modifier-info-cotrat *ngIf="infoContrat" [cc]="c"></app-modifier-info-cotrat>
+  <app-modifier-info-bancaire *ngIf="modifInfoBancaire" [cc]="c"></app-modifier-info-bancaire>
+</div>

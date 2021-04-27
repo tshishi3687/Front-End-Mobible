@@ -15,32 +15,32 @@
       <div class="form-group col-md-3">
         <h6>Information bancaire</h6>
         <label for="inputEmail4">Compte bancaire</label>
-        <input formControlName="ncompte" type="text" class="form-control"  placeholder="N° compte bancaire" readonly>
+        <input formControlName="ncompte" type="text" class="form-control"  placeholder="N° compte bancaire" >
         <label for="inputPassword4">N° domiciliation</label>
-        <input formControlName="domiciliation" type="number" class="form-control"  placeholder="N° domiciliation" readonly>
-        <div readonly>
-          <label for="inputPassword4">Status domiciliation</label>
-          <select formControlName="statusdemande" class=form-control readonly>
-            <option value=active readonly>Active</option>
-            <option value=déactive readonly>Déactive</option>
+        <input formControlName="domiciliation" type="number" class="form-control"  placeholder="N° domiciliation" >
+        <div >
+          <label for="inputPassword4"> domiciliation</label>
+          <select formControlName="statusdemande" class=form-control >
+            <option value=active >Active</option>
+            <option value=déactive >Déactive</option>
           </select>
         </div>
         <label for="inputEmail4">Nom de la banque</label>
-        <input formControlName="banque" type="text" class="form-control"  placeholder="Nom de la banque" readonly>
+        <input formControlName="banque" type="text" class="form-control"  placeholder="Nom de la banque" >
         <label for="inputPassword4">N° carte de credit</label>
-        <input formControlName="cartecredit" type="text" class="form-control"  placeholder="N° carte de credit" readonly>
+        <input formControlName="cartecredit" type="text" class="form-control"  placeholder="N° carte de credit" >
         <label for="inputEmail4">Date d'expiration</label>
-        <input formControlName="expiration" type="date" class="form-control"  placeholder="Date d'expiration" readonly>
+        <input formControlName="expiration" type="date" class="form-control"  placeholder="Date d'expiration" >
       </div>
 
       <div class="form-group col-md-6">
         <h6>Information client</h6>
         <label for="inputEmail4">Nom</label>
-        <input formControlName="nom" type="text" class="form-control" id="inputEmail4" placeholder="Nom">
+        <input formControlName="nom" type="text" class="form-control" id="inputEmail4" placeholder="Nom" readonly>
         <label for="inputPassword4">Prénom</label>
-        <input formControlName="prenom" type="text" class="form-control" id="inputPassword4" placeholder="Prénom">
+        <input formControlName="prenom" type="text" class="form-control" id="inputPassword4" placeholder="Prénom" readonly>
         <label for="inputEmail4">Genre</label>
-        <select formControlName="genre" class=form-control>
+        <select formControlName="genre" class=form-control readonly>
           <option value=Homme>Homme</option>
           <option value=Femme>Femme</option>
           <option value=genre_x>Genre x</option>
@@ -51,7 +51,7 @@
           <label for="inputEmail4">N° registre national</label>
           <input formControlName="nregistreNational" type="text" class="form-control"  placeholder="N° registre national" readonly>
           <label for="inputPassword4">Civilité</label>
-          <select formControlName="civilite" class=form-control>
+          <select formControlName="civilite" class=form-control readonly>
             <option value=Marié>Marié(e)</option>
             <option value=Célibataire>Célibataire</option>
             <option value=Veuf>Veuf(ve)</option>
@@ -63,15 +63,15 @@
       <div class="form-group col-md-3">
         <h6>Adresse client</h6>
         <label for="inputEmail4">Ville</label>
-        <input formControlName="ville" type="text" class="form-control"  placeholder="Nom Ville">
+        <input formControlName="ville" type="text" class="form-control"  placeholder="Nom Ville" readonly>
         <label for="inputPassword4">Rue</label>
-        <input formControlName="rue" type="text" class="form-control"  placeholder="Nom Rue">
+        <input formControlName="rue" type="text" class="form-control"  placeholder="Nom Rue" readonly>
         <label for="inputEmail4">N° Rue</label>
-        <input formControlName="nrue" type="number" class="form-control"  placeholder="N° Rue">
+        <input formControlName="nrue" type="number" class="form-control"  placeholder="N° Rue" readonly>
         <label for="inputPassword4">Code Postal</label>
-        <input formControlName="cpostal" type="number" class="form-control"  placeholder="Code Postal">
+        <input formControlName="cpostal" type="number" class="form-control"  placeholder="Code Postal" readonly>
         <label for="inputEmail4">N° Boite au Lettre</label>
-        <input formControlName="nboitelette" type="text" class="form-control"  placeholder="N° Boite au Lettre">
+        <input formControlName="nboitelette" type="text" class="form-control"  placeholder="N° Boite au Lettre" readonly>
       </div>
 
 

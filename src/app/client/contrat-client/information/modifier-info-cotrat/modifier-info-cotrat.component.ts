@@ -13,7 +13,7 @@ export class ModifierInfoCotratComponent implements OnInit {
   constructor(private client: DonneeService) { }
 
   active = false;
-  @Input() c: Contrat;
+  @Input() cc: Contrat;
 
   contratForm = new FormGroup(
     {
